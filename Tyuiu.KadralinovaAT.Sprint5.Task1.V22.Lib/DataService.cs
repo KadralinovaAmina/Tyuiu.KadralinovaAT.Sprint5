@@ -23,6 +23,11 @@ namespace Tyuiu.KadralinovaAT.Sprint5.Task1.V22.Lib
                 y = Math.Round(y, 2);
                 strY = Convert.ToString(y);
 
+                if (x == 2)
+                {
+                    y = 0;
+                }
+
                 if (x != stopValue)
                 {
                     File.AppendAllText(path, strY + Environment.NewLine);
