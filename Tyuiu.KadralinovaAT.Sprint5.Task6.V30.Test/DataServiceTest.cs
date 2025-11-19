@@ -6,8 +6,27 @@ namespace Tyuiu.KadralinovaAT.Sprint5.Task6.V30.Test
     public sealed class DataServiceTest
     {
         [TestMethod]
-        public void TestMethod1()
+        public void ValidCalc()
         {
+            DataService ds = new DataService();
+            string file = "InPutDataFileTask6V30.txt";
+            string directory = @"C:\DataSprint5";
+            string path = Path.Combine(directory, file);
+
+            var res = ds.LoadFromDataFile(path);
+            int wait = 2;
+            Assert.AreEqual(wait, res);
+        }
+        [TestMethod]
+        public void Checked()
+        {
+            string file = "InPutDataFileTask6V30.txt";
+            string directory = @"C:\DataSprint5";
+            string path = Path.Combine(directory, file);
+            FileInfo fileInfo = new FileInfo(path);
+            bool fileExists = fileInfo.Exists;
+            bool wait = true;
+            Assert.AreEqual(wait, fileExists);
         }
     }
 }

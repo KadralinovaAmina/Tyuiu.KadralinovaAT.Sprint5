@@ -6,7 +6,23 @@ namespace Tyuiu.KadralinovaAT.Sprint5.Task6.V30.Lib
     {
         public int LoadFromDataFile(string path)
         {
-            throw new NotImplementedException();
+            int count = 0;
+            using (StreamReader reader = new StreamReader(path))
+            {
+                string line;
+                while ((line = reader.ReadLine()) != null)
+                {
+                    string[] words = line.Split(' ');
+                    for (int i = 0; i < words.Length; i++)
+                    {
+                        if (words[i].Length == 8)
+                        {
+                            count++;
+                        }
+                    }
+                }
+            }
+            return count;
         }
     }
 }
