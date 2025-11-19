@@ -23,7 +23,7 @@ namespace Tyuiu.KadralinovaAT.Sprint5.Task2.V28.Lib
             {
                 for (int j = 0; j < columns; j++)
                 {
-                    if (matrix[i, j] < 0)
+                    if (matrix[i, j] > 0)
                     {
                         matrix[i, j] = 1;
                     }
