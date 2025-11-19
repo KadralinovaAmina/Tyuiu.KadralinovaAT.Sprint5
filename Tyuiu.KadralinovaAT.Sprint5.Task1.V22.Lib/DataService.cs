@@ -1,11 +1,37 @@
-﻿using tyuiu.cources.programming.interfaces.Sprint5;
+﻿using System.IO;
+using tyuiu.cources.programming.interfaces.Sprint5;
 namespace Tyuiu.KadralinovaAT.Sprint5.Task1.V22.Lib
 {
     public class DataService : ISprint5Task1V22
     {
         public string SaveToFileTextData(int startValue, int stopValue)
         {
-            throw new NotImplementedException();
+            string path = Path.Combine(Path.GetTempPath(), "OutPutFileTask0.txt");
+            FileInfo fileInfo = new FileInfo(path);
+            bool fileExists = fileInfo.Exists;
+
+            if (fileExists)
+            {
+                File.Delete(path);
+            }
+
+            double y;
+            string strY;
+            for (int x = startValue; x <= stopValue; x++)
+            {
+                y = Math.Sin(x) + (Math.Cos(x) + 1) / (2 - x) + 2 * x;
+                strY = Convert.ToString(y);
+
+                if (x != stopValue)
+                {
+                    File.AppendAllText(path, strY + Environment.NewLine);
+                }
+                else
+                {
+                    File.AppendAllText(path, strY);
+                }
+            }
+            return path;
         }
     }
 }
