@@ -20,6 +20,7 @@ namespace Tyuiu.KadralinovaAT.Sprint5.Task1.V22.Lib
             for (int x = startValue; x <= stopValue; x++)
             {
                 y = Math.Sin(x) + (Math.Cos(x) + 1) / (2 - x) + 2 * x;
+                y = Math.Round(y, 2);
                 strY = Convert.ToString(y);
 
                 if (x != stopValue)
