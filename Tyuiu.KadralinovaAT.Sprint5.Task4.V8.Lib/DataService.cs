@@ -6,7 +6,17 @@ namespace Tyuiu.KadralinovaAT.Sprint5.Task4.V8.Lib
     {
         public double LoadFromDataFile(string path)
         {
-            throw new NotImplementedException();
+            string strX = File.ReadAllText(path);
+            foreach (char symb in strX)
+            {
+
+                strX = strX.Replace(".", ",");
+
+            }
+
+            double x = Convert.ToDouble(strX);
+            double res = Math.Pow((x), 2) / Math.Sin(x) + 3;
+            return Math.Round(res, 3);
         }
     }
 }
